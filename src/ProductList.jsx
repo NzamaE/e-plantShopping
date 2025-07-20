@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
 import { addItem } from './CartSlice';
+import { useDispatch } from 'react-redux';
+
+
+
 
 
 
@@ -10,7 +14,8 @@ function ProductList({ onHomeClick }) {
     const [showPlants, setShowPlants] = useState(true); // State to control the visibility of the About Us page
 
     const [addedToCart, setAddedToCart] = useState({});
-
+    const dispatch = useDispatch();
+  
 
     const plantsArray = [
         {
@@ -221,7 +226,7 @@ function ProductList({ onHomeClick }) {
     ];
     const styleObj = {
         backgroundColor: '#4CAF50',
-        color: '#fff!important',
+        color: '#fff',
         padding: '15px',
         display: 'flex',
         justifyContent: 'space-between',
@@ -267,6 +272,7 @@ function ProductList({ onHomeClick }) {
           [product.name]: true, // Set the current product's name as a key with value 'true' to mark it as added
         }));
       };
+      
 
     return (
         <div>
